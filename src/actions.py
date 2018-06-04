@@ -7,8 +7,8 @@ def exit_action():
     print("EXIT")
 
 
-def check_action():
-    print("CHECK")
+def check_action(*args):
+    print("CHECKED") if args[0] else print("UNCHECKED")
 
 
 ACTION_LIST = [['status', get_ss_status]]
@@ -21,5 +21,5 @@ def get_actions(parent):
         yield action
 
     for c in CHECKABLE_LIST:
-        action = QAction(c[0], parent, checkable=True, triggered=c[1])
+        action = QAction(c[0], parent, checkable=True, toggled=c[1])
         yield action

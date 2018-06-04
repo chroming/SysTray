@@ -46,7 +46,7 @@ class Tray(BaseTray):
             yield action
 
         for c in CHECKABLE_LIST:
-            action = QAction(c[0], self.tray, checkable=True, triggered=lambda _: self._with_message(c[1]))
+            action = QAction(c[0], self.tray, checkable=True, triggered=lambda x: self._with_message(c[1], x))
             yield action
 
     def _set_customer_menu(self):
@@ -56,8 +56,8 @@ class Tray(BaseTray):
     def _set_sys_menu(self):
         self.tray_menu.addAction(QAction('EXIT', self.tray, triggered=self.quit))
 
-    def _with_message(self, func):
-        self.show_message(func())
+    def _with_message(self, func, *args):
+        self.show_message(func(*args))
 
 
 if __name__ == '__main__':
