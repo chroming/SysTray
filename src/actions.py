@@ -1,5 +1,6 @@
 
 from PyQt5.QtWidgets import QAction
+from web_api import *
 
 
 def exit_action():
@@ -10,7 +11,7 @@ def check_action():
     print("CHECK")
 
 
-ACTION_LIST = [['exit', exit_action]]
+ACTION_LIST = [['status', get_ss_status]]
 CHECKABLE_LIST = [['check', check_action]]
 
 
